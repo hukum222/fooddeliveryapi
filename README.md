@@ -11,37 +11,39 @@ This is an API for a food delivery platform that allows users to order food from
 - MySQL
 - AWS (Amazon Web Services)
 
-## API Documentation
+API Documentation
+The API documentation is available using Swagger. After running the application, you can access the Swagger UI at http://localhost:8080/swagger-ui.html. It provides detailed information about each endpoint, request parameters, and response formats.
 
-The API is documented using Swagger. You can access the Swagger UI to explore and test the API endpoints using the following link:
+# Controllers
+## UserController
+POST /api/users - Create a new user.
+GET /api/users/{userId} - Get information about a specific user.
+GET /api/users/{userId}/orders - Get the order history for a user.
+POST /api/users/{userId}/orders - Place a new order for a user.
+## FoodItemController
+POST /api/food-items - Add a new food item.
+GET /api/food-items/{foodItemId} - Get information about a specific food item.
+PUT /api/food-items/{foodItemId} - Update information for a food item.
+DELETE /api/food-items/{foodItemId} - Delete a food item.
+## OrderController
+GET /api/orders/{orderId} - Get information about a specific order.
+GET /api/orders - Get all orders.
+PUT /api/orders/{orderId}/cancel - Cancel a specific order.
+# Services
+## UserService
+The UserService handles user-related operations such as user creation, retrieval, and order management.
 
-Swagger UI: [API Documentation](https://your-api-url/swagger-ui.html)
+## FoodItemService
+The FoodItemService handles food item-related operations such as adding new food items, updating information, and deleting food items.
 
-## Prerequisites
+## OrderService
+The OrderService handles order-related operations such as placing new orders, retrieving order details, and canceling orders.
 
-To run this API locally or deploy it to AWS, you'll need the following prerequisites:
+## Usage
+To use the API, you need to authenticate as a user. Once authenticated, you can place orders, view order history, and perform CRUD operations on food items .
 
-- Java JDK
-- MySQL database
-- AWS account with appropriate permissions for deployment
-
-## Getting Started
-
-1. Clone this repository to your local machine.
-2. Set up the MySQL database and update the database configuration in the `application.properties` file.
-3. Build the project using the following command:
-
-```
-$ ./mvnw clean install
-```
-
-4. Run the API locally with the following command:
-
-```
-$ ./mvnw spring-boot:run
-```
-
-5. Access the API locally at `http://localhost:8080`.
+Refer to the API documentation for detailed information on the request and response formats for each endpoint.
+.
 
 ## AWS Deployment
 
